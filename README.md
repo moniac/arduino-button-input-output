@@ -51,4 +51,3 @@ The intent of this manual will be to help you setup a button to activate somethi
     }
     delay(50);
   } 
-    ```
