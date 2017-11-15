@@ -26,25 +26,29 @@ The intent of this manual will be to help you setup a button to activate somethi
   int buttonState = 0;
   
   void setup() {
+  // this is to write all the data to the console
   Serial.begin(115200);
   
+  // this is to set the button as an input and the motor as an output
   pinMode(buttonPin, INPUT);
   pinMode(motorPin, OUTPUT);
   } 
   
-void loop() {
-  buttonState = digitalRead(buttonPin);
+  void loop() {
+  // the variable will now be what comes through the button
+    buttonState = digitalRead(buttonPin);
 
-  if (buttonState == LOW) {
-    Serial.println( "Button is pressed" );
-    int buttonPressed = 1;
-    delay(1000);
-    digitalWrite(motorPin,HIGH);
-    
-  } else {
-    Serial.println( "Not pressed" );
-    digitalWrite(motorPin,LOW);
-  }
-  delay(50);
-} 
-  ```
+    if (buttonState == LOW) {
+    // if the button is pressed, do this
+      Serial.println( "Button is pressed" );
+      int buttonPressed = 1;
+      delay(1000);
+      digitalWrite(motorPin,HIGH);
+
+    } else {
+      Serial.println( "Not pressed" );
+      digitalWrite(motorPin,LOW);
+    }
+    delay(50);
+  } 
+    ```
