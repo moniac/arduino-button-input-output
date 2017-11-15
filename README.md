@@ -17,11 +17,34 @@ The intent of this manual will be to help you setup a button to activate somethi
   # The Code
   
   ```
+  // this is where we declare the pins
+  // we use const because this doesn't change
+  const int buttonPin = 2;
+  const int motorPin = 14;
+  
+  // we use a variable here because this will change
+  int buttonState = 0;
+  
   void setup() {
+  Serial.begin(115200);
   
+  pinMode(buttonPin, INPUT);
+  pinMode(motorPin, OUTPUT);
   } 
   
-  void loop() {
-  
-  } 
+void loop() {
+  buttonState = digitalRead(buttonPin);
+
+  if (buttonState == LOW) {
+    Serial.println( "Button is pressed" );
+    int buttonPressed = 1;
+    delay(1000);
+    digitalWrite(motorPin,HIGH);
+    
+  } else {
+    Serial.println( "Not pressed" );
+    digitalWrite(motorPin,LOW);
+  }
+  delay(50);
+} 
   ```
